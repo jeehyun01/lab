@@ -68,7 +68,7 @@ dateWindow: [date_win_min, date_win_max],
 
 // valueRange: [980, 1020],
 
-labels: ['Time', 'Acceleration'],
+labels: ['Time', 'Pressure'],
 
 showRangeSelector: true
 
@@ -95,7 +95,7 @@ g.updateOptions( { dateWindow : [date_win_min, date_win_max] } );
 
 data.push([x, y]);
 
-if ((data.length&15)==15) g.updateOptions( { 'file': data } );
+g.updateOptions( { 'file': data } );
 
 };
 
@@ -117,9 +117,8 @@ connection.write("clearInterval(1)\n", function() { });
 } else {
 
 data.splice(0,data.length);
-  
 
-connection.write("setInterval(function(){Bluetooth.println(accelerometer().toFixed(3));} ,10); \n", function() { });
+connection.write("setInterval(function(){Bluetooth.println(ecg().toFixed(3));} ,20); \n", function() { });
 
 t = new Date();
 
@@ -258,3 +257,5 @@ rec_startstop.addEventListener("click", function () { startstop_record() } );
 </body>
 
 </html>
+
+
