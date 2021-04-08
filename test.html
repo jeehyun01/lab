@@ -138,7 +138,11 @@ rec_startstop.textContent= "Stop Recording";
 
 if (data.length == 100) {
 
+rec_startstop.textContent = "Start New Recording";
+
 rec_flag = false;
+
+connection.write("clearInterval(1)\n", function() { });
 
 };
 
