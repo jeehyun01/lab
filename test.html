@@ -136,7 +136,7 @@ rec_startstop.textContent= "Stop Recording";
   
 // automatic saving after certain value
   
-if (data.length === 1000) {
+if (data.length === 100) {
 
 connection.write("clearInterval(1)\n", function() { });
 
