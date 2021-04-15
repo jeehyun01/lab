@@ -253,8 +253,6 @@ location.href = 'data:application/octet-stream,' + encodeURIComponent(content); 
 }
 
 download(csvContent, 'Puck.csv', 'text/csv;encoding:utf-8');
-  
-connection.write("clearInterval(1)\n", function() { });
 
 } // end savemyCSV();
 
