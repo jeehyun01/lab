@@ -140,7 +140,9 @@ var date_win_max = date_win_min + 2*taxis_increment;
 
 g.updateOptions( { dateWindow : [date_win_min, date_win_max] } );
   
-setInterval(savemyCSV,100000);
+setInterval(savemyCSV,30000);
+
+//connection.write("clearInterval(1)\n", function() { });
 
 rec_flag = true;
 
