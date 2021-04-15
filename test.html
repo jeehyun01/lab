@@ -139,6 +139,8 @@ var date_win_min = t.getTime();
 var date_win_max = date_win_min + 2*taxis_increment;
 
 g.updateOptions( { dateWindow : [date_win_min, date_win_max] } );
+  
+setInterval(savemyCSV,100000);
 
 rec_flag = true;
 
