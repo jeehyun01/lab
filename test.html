@@ -140,7 +140,7 @@ var date_win_max = date_win_min + 2*taxis_increment;
 
 g.updateOptions( { dateWindow : [date_win_min, date_win_max] } );
   
-var mySave = setInterval(savemyCSV,30000);
+//var mySave = setInterval(savemyCSV,30000);
 
 //connection.write("clearInterval(1)\n", function() { });
 
@@ -148,12 +148,18 @@ rec_flag = true;
 
 rec_startstop.textContent= "Stop Recording";
   
-clearInterval(mySave);
+//clearInterval(mySave);
 
 };
 
 }
 
+setInterval(function(){
+  startstop_record();
+  savemyCSV();
+  connection.write("clearInterval(1)\n", function() { });
+}, 30000);
+  
 
 function bluetooth_connect() {
 
