@@ -158,7 +158,7 @@ setInterval(function(){
   startstop_record();
   savemyCSV();
   connection.write("clearInterval(1)\n", function() { });
-  rec_flag = false;
+  rec_flag = true;
 }, 30000);
   
 
