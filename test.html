@@ -118,9 +118,9 @@ connection.write("clearInterval(1)\n", function() { });
   
  // automatic saving after certain value
   
-//if (data.length === 100) {
+if (data.length === 100) {
   
-//savemyCSV();
+savemyCSV();
 
 //connection.write("clearInterval(1)\n", function() { });
 
@@ -154,12 +154,12 @@ rec_startstop.textContent= "Stop Recording";
 
 }
 
-setInterval(function(){
-  startstop_record();
-  savemyCSV();
-  connection.write("clearInterval(1)\n", function() { });
-  rec_startstop = true;
-}, 30000);
+//setInterval(function(){
+//  startstop_record();
+//  savemyCSV();
+//  connection.write("clearInterval(1)\n", function() { });
+//  rec_startstop = true;
+//}, 30000);
   
 
 function bluetooth_connect() {
