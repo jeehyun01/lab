@@ -9,7 +9,8 @@
 
 <button type="button" id="my_Savedata" > Save Date as CSV - File </button>
 
-
+<button type="button" id="my_looprec" > Save Date as CSV - File </button>
+  
 <script src="https://www.puck-js.com/puck.js"></script>
 
 <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
@@ -42,6 +43,8 @@ var xconnect = document.getElementById("myPuck_connect");
 var savemy_CSV = document.getElementById("my_Savedata");
 
 var rec_startstop = document.getElementById("myrecord_start");
+  
+  var rec_looprec = document.getElementById("my_looprec");
 
 var taxis_increment = 10 * 1000; /// axis increment in milliseconds
 
@@ -154,12 +157,15 @@ rec_startstop.textContent= "Stop Recording";
 
 }
 
-//setInterval(function(){
-//  startstop_record();
-//  savemyCSV();
-//  connection.write("clearInterval(1)\n", function() { });
-//  rec_startstop = true;
-//}, 30000);
+function loopRecord(){
+  startstop_record();
+  setInterval(function(){
+    startstop_record();
+    savemyCSV();
+    connection.write("clearInterval(1)\n", function() { });
+    startstop_record();
+  }, 30000);
+}
   
 
 function bluetooth_connect() {
@@ -270,6 +276,9 @@ xconnect.addEventListener("click", function () { bluetooth_connect() } );
 savemy_CSV.addEventListener("click", function () { savemyCSV() } );
 
 rec_startstop.addEventListener("click", function () { startstop_record() } );
+  
+rec_looprec.addEventListener("click", function () { loopRecord() } );
+
 
 });
 
