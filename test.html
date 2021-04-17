@@ -159,11 +159,12 @@ rec_startstop.textContent= "Stop Recording";
 
 function loopRecord(){
   startstop_record();
-  setInterval(function(){
+  var loop = setInterval(function(){
     startstop_record();
     savemyCSV();
     connection.write("clearInterval(1)\n", function() { });
     startstop_record();
+    if (rec_flag = true) clearInterval(loop);
     //rec_flag = true;
   }, 30000);
 }
